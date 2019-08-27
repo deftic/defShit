@@ -1,0 +1,13 @@
+Package: defShit
+Type: Package
+Title: Package of private functions and stuff
+Version: 0.1.0
+Author: Christoph-Patric Bachmann
+Maintainer: Christoph-Patric Bachmann <c.bachmann@unibas.ch>
+Description: R Package with useful functions and other goodies 
+License: None
+Encoding: UTF-8
+LazyData: true
+Imports: 
+  MESS
+RoxygenNote: 6.1.1
