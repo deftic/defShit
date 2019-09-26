@@ -4,6 +4,9 @@
 #                                           #
 #############################################
 
+# requires a data.frame with two columns named value and genotype
+# returns a variable containing significance in none to four stars 
+
 significance <- function(df) {
   data.frame(
     target <- deparse(substitute(df)), # extract name of dataframe
