@@ -1,0 +1,512 @@
+geom_segment(aes(x = dims$xmax, y = dims$ymax, xend = dims$xmax, yend = dims$halfMax, color = "red"), lty = 2) +
+geom_segment(aes(x = dims$xmax + 0.2, y = dims$halfMax + 0.5, xend = dims$xB - 0.2, yend = dims$halfMax + 0.5), lty = 1) +
+annotate("text", x = dims$xB - dims$hrt / 2, y = dims$halfMax + (dims$halfMax * 0.02), label = labelHRT, cex = 3, hjust = 0.5) +
+theme(legend.position="none")
+}
+z <- subset(data, select = c(1, 29))
+names(z) <- c("time", "value")
+fwhm_z <- fwhm.fun(z)
+hrt_z <- hrt.fun(z)
+ttp_z <- ttp.fun(z)
+area_z <- area.fun(z)
+result <- data.frame(fwhm = fwhm_z, hrt = hrt_z, ttp = ttp_z, area = area_z)
+results <- rbind(results, result)
+dims <- peakDim.fun(z)
+names(dims) <- c("xmax", "ymax", "ybase", "ypeak", "halfMax", "xAHigh", "xALow", "yAHigh", "yALow", "xBHigh", "xBLow", "yBHigh", "yBHigh", "mA", "aA", "xA", "mB", "aB", "xB", "fwhm", "hrt", "ttp", "area")
+labelFWHM <- paste0("FWHM: ", round(result[1], 3))
+labelHRT <- paste0("HRT: ", round(result[2], 3))
+ggplot(data = z, aes()) +
+geom_line(aes(x = time, y = value)) +
+geom_point(aes(x = dims$xA, y = dims$halfMax), color = "red") +
+geom_point(aes(x = dims$xB, y = dims$halfMax), color = "red") +
+geom_point(aes(x = dims$xmax, y = dims$ymax, color = "red")) +
+geom_segment(aes(x = dims$xA, y = dims$halfMax, xend = dims$xB, yend = dims$halfMax, color = "red"), lty = 2) +
+geom_segment(aes(x = dims$xA + 0.2, y = dims$halfMax - 0.5, xend = dims$xB - 0.2, yend = dims$halfMax - 0.5), lty = 1) +
+annotate("text", x = dims$xA + dims$fwhm / 2, y = dims$halfMax - (dims$halfMax * 0.02), label = labelFWHM, cex = 3, hjust = 0.5) +
+geom_segment(aes(x = dims$xmax, y = dims$ymax, xend = dims$xmax, yend = dims$halfMax, color = "red"), lty = 2) +
+geom_segment(aes(x = dims$xmax + 0.2, y = dims$halfMax + 0.5, xend = dims$xB - 0.2, yend = dims$halfMax + 0.5), lty = 1) +
+annotate("text", x = dims$xB - dims$hrt / 2, y = dims$halfMax + (dims$halfMax * 0.02), label = labelHRT, cex = 3, hjust = 0.5) +
+theme(legend.position="none")
+View(data)
+ggplot(data = z, aes()) +
+geom_line(aes(x = time, y = value)) +
+geom_point(aes(x = dims$xA, y = dims$halfMax), color = "red") +
+geom_point(aes(x = dims$xB, y = dims$halfMax), color = "red") +
+geom_point(aes(x = dims$xmax, y = dims$ymax, color = "red")) +
+geom_segment(aes(x = dims$xA, y = dims$halfMax, xend = dims$xB, yend = dims$halfMax, color = "red"), lty = 2) +
+geom_segment(aes(x = dims$xA + 0.2, y = dims$halfMax - 0.5, xend = dims$xB - 0.2, yend = dims$halfMax - 0.5), lty = 1) +
+annotate("text", x = dims$xA + dims$fwhm / 2, y = dims$halfMax - (dims$halfMax * 0.02), label = labelFWHM, cex = 3, hjust = 0.5)
+ggplot(data = z, aes()) +
+geom_line(aes(x = time, y = value)) +
+geom_point(aes(x = dims$xA, y = dims$halfMax), color = "red") +
+geom_point(aes(x = dims$xB, y = dims$halfMax), color = "red") +
+geom_point(aes(x = dims$xmax, y = dims$ymax, color = "red")) +
+geom_segment(aes(x = dims$xA, y = dims$halfMax, xend = dims$xB, yend = dims$halfMax, color = "red"), lty = 2) +
+geom_segment(aes(x = dims$xA + 0.2, y = dims$halfMax - 0.5, xend = dims$xB - 0.2, yend = dims$halfMax - 0.5), lty = 1) +
+annotate("text", x = dims$xA + dims$fwhm / 2, y = dims$halfMax - (dims$halfMax * 0.02), label = labelFWHM, cex = 3, hjust = 0.5) +
+geom_segment(aes(x = dims$xmax, y = dims$ymax, xend = dims$xmax, yend = dims$halfMax, color = "red"), lty = 2) +
+geom_segment(aes(x = dims$xmax + 0.2, y = dims$halfMax + 0.5, xend = dims$xB - 0.2, yend = dims$halfMax + 0.5), lty = 1) +
+annotate("text", x = dims$xB - dims$hrt / 2, y = dims$halfMax + (dims$halfMax * 0.02), label = labelHRT, cex = 3, hjust = 0.5) +
+theme(legend.position="none")
+z <- subset(data, select = c(1, 3))
+names(z) <- c("time", "value")
+fwhm_z <- fwhm.fun(z)
+hrt_z <- hrt.fun(z)
+ttp_z <- ttp.fun(z)
+area_z <- area.fun(z)
+result <- data.frame(fwhm = fwhm_z, hrt = hrt_z, ttp = ttp_z, area = area_z)
+results <- rbind(results, result)
+dims <- peakDim.fun(z)
+names(dims) <- c("xmax", "ymax", "ybase", "ypeak", "halfMax", "xAHigh", "xALow", "yAHigh", "yALow", "xBHigh", "xBLow", "yBHigh", "yBHigh", "mA", "aA", "xA", "mB", "aB", "xB", "fwhm", "hrt", "ttp", "area")
+labelFWHM <- paste0("FWHM: ", round(result[1], 3))
+labelHRT <- paste0("HRT: ", round(result[2], 3))
+ggplot(data = z, aes()) +
+geom_line(aes(x = time, y = value)) +
+geom_point(aes(x = dims$xA, y = dims$halfMax), color = "red") +
+geom_point(aes(x = dims$xB, y = dims$halfMax), color = "red") +
+geom_point(aes(x = dims$xmax, y = dims$ymax, color = "red")) +
+geom_segment(aes(x = dims$xA, y = dims$halfMax, xend = dims$xB, yend = dims$halfMax, color = "red"), lty = 2) +
+geom_segment(aes(x = dims$xA + 0.2, y = dims$halfMax - 0.5, xend = dims$xB - 0.2, yend = dims$halfMax - 0.5), lty = 1) +
+annotate("text", x = dims$xA + dims$fwhm / 2, y = dims$halfMax - (dims$halfMax * 0.02), label = labelFWHM, cex = 3, hjust = 0.5) +
+geom_segment(aes(x = dims$xmax, y = dims$ymax, xend = dims$xmax, yend = dims$halfMax, color = "red"), lty = 2) +
+geom_segment(aes(x = dims$xmax + 0.2, y = dims$halfMax + 0.5, xend = dims$xB - 0.2, yend = dims$halfMax + 0.5), lty = 1) +
+annotate("text", x = dims$xB - dims$hrt / 2, y = dims$halfMax + (dims$halfMax * 0.02), label = labelHRT, cex = 3, hjust = 0.5) +
+theme(legend.position="none")
+z <- subset(data, select = c(1, 4))
+names(z) <- c("time", "value")
+fwhm_z <- fwhm.fun(z)
+hrt_z <- hrt.fun(z)
+ttp_z <- ttp.fun(z)
+area_z <- area.fun(z)
+result <- data.frame(fwhm = fwhm_z, hrt = hrt_z, ttp = ttp_z, area = area_z)
+results <- rbind(results, result)
+dims <- peakDim.fun(z)
+names(dims) <- c("xmax", "ymax", "ybase", "ypeak", "halfMax", "xAHigh", "xALow", "yAHigh", "yALow", "xBHigh", "xBLow", "yBHigh", "yBHigh", "mA", "aA", "xA", "mB", "aB", "xB", "fwhm", "hrt", "ttp", "area")
+labelFWHM <- paste0("FWHM: ", round(result[1], 3))
+labelHRT <- paste0("HRT: ", round(result[2], 3))
+ggplot(data = z, aes()) +
+geom_line(aes(x = time, y = value)) +
+geom_point(aes(x = dims$xA, y = dims$halfMax), color = "red") +
+geom_point(aes(x = dims$xB, y = dims$halfMax), color = "red") +
+geom_point(aes(x = dims$xmax, y = dims$ymax, color = "red")) +
+geom_segment(aes(x = dims$xA, y = dims$halfMax, xend = dims$xB, yend = dims$halfMax, color = "red"), lty = 2) +
+geom_segment(aes(x = dims$xA + 0.2, y = dims$halfMax - 0.5, xend = dims$xB - 0.2, yend = dims$halfMax - 0.5), lty = 1) +
+annotate("text", x = dims$xA + dims$fwhm / 2, y = dims$halfMax - (dims$halfMax * 0.02), label = labelFWHM, cex = 3, hjust = 0.5) +
+geom_segment(aes(x = dims$xmax, y = dims$ymax, xend = dims$xmax, yend = dims$halfMax, color = "red"), lty = 2) +
+geom_segment(aes(x = dims$xmax + 0.2, y = dims$halfMax + 0.5, xend = dims$xB - 0.2, yend = dims$halfMax + 0.5), lty = 1) +
+annotate("text", x = dims$xB - dims$hrt / 2, y = dims$halfMax + (dims$halfMax * 0.02), label = labelHRT, cex = 3, hjust = 0.5) +
+theme(legend.position="none")
+z <- subset(data, select = c(1, 2))
+names(z) <- c("time", "value")
+fwhm_z <- fwhm.fun(z)
+hrt_z <- hrt.fun(z)
+ttp_z <- ttp.fun(z)
+area_z <- area.fun(z)
+result <- data.frame(fwhm = fwhm_z, hrt = hrt_z, ttp = ttp_z, area = area_z)
+results <- rbind(results, result)
+dims <- peakDim.fun(z)
+names(dims) <- c("xmax", "ymax", "ybase", "ypeak", "halfMax", "xAHigh", "xALow", "yAHigh", "yALow", "xBHigh", "xBLow", "yBHigh", "yBHigh", "mA", "aA", "xA", "mB", "aB", "xB", "fwhm", "hrt", "ttp", "area")
+labelFWHM <- paste0("FWHM: ", round(result[1], 3))
+labelHRT <- paste0("HRT: ", round(result[2], 3))
+ggplot(data = z, aes()) +
+geom_line(aes(x = time, y = value)) +
+geom_point(aes(x = dims$xA, y = dims$halfMax), color = "red") +
+geom_point(aes(x = dims$xB, y = dims$halfMax), color = "red") +
+geom_point(aes(x = dims$xmax, y = dims$ymax, color = "red")) +
+geom_segment(aes(x = dims$xA, y = dims$halfMax, xend = dims$xB, yend = dims$halfMax, color = "red"), lty = 2) +
+geom_segment(aes(x = dims$xA + 0.2, y = dims$halfMax - 0.5, xend = dims$xB - 0.2, yend = dims$halfMax - 0.5), lty = 1) +
+annotate("text", x = dims$xA + dims$fwhm / 2, y = dims$halfMax - (dims$halfMax * 0.02), label = labelFWHM, cex = 3, hjust = 0.5) +
+geom_segment(aes(x = dims$xmax, y = dims$ymax, xend = dims$xmax, yend = dims$halfMax, color = "red"), lty = 2) +
+geom_segment(aes(x = dims$xmax + 0.2, y = dims$halfMax + 0.5, xend = dims$xB - 0.2, yend = dims$halfMax + 0.5), lty = 1) +
+annotate("text", x = dims$xB - dims$hrt / 2, y = dims$halfMax + (dims$halfMax * 0.02), label = labelHRT, cex = 3, hjust = 0.5) +
+theme(legend.position="none")
+z <- subset(data, select = c(1, 3))
+names(z) <- c("time", "value")
+fwhm_z <- fwhm.fun(z)
+hrt_z <- hrt.fun(z)
+ttp_z <- ttp.fun(z)
+area_z <- area.fun(z)
+result <- data.frame(fwhm = fwhm_z, hrt = hrt_z, ttp = ttp_z, area = area_z)
+results <- rbind(results, result)
+dims <- peakDim.fun(z)
+names(dims) <- c("xmax", "ymax", "ybase", "ypeak", "halfMax", "xAHigh", "xALow", "yAHigh", "yALow", "xBHigh", "xBLow", "yBHigh", "yBHigh", "mA", "aA", "xA", "mB", "aB", "xB", "fwhm", "hrt", "ttp", "area")
+labelFWHM <- paste0("FWHM: ", round(result[1], 3))
+labelHRT <- paste0("HRT: ", round(result[2], 3))
+ggplot(data = z, aes()) +
+geom_line(aes(x = time, y = value)) +
+geom_point(aes(x = dims$xA, y = dims$halfMax), color = "red") +
+geom_point(aes(x = dims$xB, y = dims$halfMax), color = "red") +
+geom_point(aes(x = dims$xmax, y = dims$ymax, color = "red")) +
+geom_segment(aes(x = dims$xA, y = dims$halfMax, xend = dims$xB, yend = dims$halfMax, color = "red"), lty = 2) +
+geom_segment(aes(x = dims$xA + 0.2, y = dims$halfMax - 0.5, xend = dims$xB - 0.2, yend = dims$halfMax - 0.5), lty = 1) +
+annotate("text", x = dims$xA + dims$fwhm / 2, y = dims$halfMax - (dims$halfMax * 0.02), label = labelFWHM, cex = 3, hjust = 0.5) +
+geom_segment(aes(x = dims$xmax, y = dims$ymax, xend = dims$xmax, yend = dims$halfMax, color = "red"), lty = 2) +
+geom_segment(aes(x = dims$xmax + 0.2, y = dims$halfMax + 0.5, xend = dims$xB - 0.2, yend = dims$halfMax + 0.5), lty = 1) +
+annotate("text", x = dims$xB - dims$hrt / 2, y = dims$halfMax + (dims$halfMax * 0.02), label = labelHRT, cex = 3, hjust = 0.5) +
+theme(legend.position="none")
+z <- subset(data, select = c(1, 4))
+names(z) <- c("time", "value")
+fwhm_z <- fwhm.fun(z)
+hrt_z <- hrt.fun(z)
+ttp_z <- ttp.fun(z)
+area_z <- area.fun(z)
+result <- data.frame(fwhm = fwhm_z, hrt = hrt_z, ttp = ttp_z, area = area_z)
+results <- rbind(results, result)
+dims <- peakDim.fun(z)
+names(dims) <- c("xmax", "ymax", "ybase", "ypeak", "halfMax", "xAHigh", "xALow", "yAHigh", "yALow", "xBHigh", "xBLow", "yBHigh", "yBHigh", "mA", "aA", "xA", "mB", "aB", "xB", "fwhm", "hrt", "ttp", "area")
+labelFWHM <- paste0("FWHM: ", round(result[1], 3))
+labelHRT <- paste0("HRT: ", round(result[2], 3))
+ggplot(data = z, aes()) +
+geom_line(aes(x = time, y = value)) +
+geom_point(aes(x = dims$xA, y = dims$halfMax), color = "red") +
+geom_point(aes(x = dims$xB, y = dims$halfMax), color = "red") +
+geom_point(aes(x = dims$xmax, y = dims$ymax, color = "red")) +
+geom_segment(aes(x = dims$xA, y = dims$halfMax, xend = dims$xB, yend = dims$halfMax, color = "red"), lty = 2) +
+geom_segment(aes(x = dims$xA + 0.2, y = dims$halfMax - 0.5, xend = dims$xB - 0.2, yend = dims$halfMax - 0.5), lty = 1) +
+annotate("text", x = dims$xA + dims$fwhm / 2, y = dims$halfMax - (dims$halfMax * 0.02), label = labelFWHM, cex = 3, hjust = 0.5) +
+geom_segment(aes(x = dims$xmax, y = dims$ymax, xend = dims$xmax, yend = dims$halfMax, color = "red"), lty = 2) +
+geom_segment(aes(x = dims$xmax + 0.2, y = dims$halfMax + 0.5, xend = dims$xB - 0.2, yend = dims$halfMax + 0.5), lty = 1) +
+annotate("text", x = dims$xB - dims$hrt / 2, y = dims$halfMax + (dims$halfMax * 0.02), label = labelHRT, cex = 3, hjust = 0.5) +
+theme(legend.position="none")
+z <- subset(data, select = c(1, 5))
+names(z) <- c("time", "value")
+fwhm_z <- fwhm.fun(z)
+hrt_z <- hrt.fun(z)
+ttp_z <- ttp.fun(z)
+area_z <- area.fun(z)
+result <- data.frame(fwhm = fwhm_z, hrt = hrt_z, ttp = ttp_z, area = area_z)
+results <- rbind(results, result)
+dims <- peakDim.fun(z)
+names(dims) <- c("xmax", "ymax", "ybase", "ypeak", "halfMax", "xAHigh", "xALow", "yAHigh", "yALow", "xBHigh", "xBLow", "yBHigh", "yBHigh", "mA", "aA", "xA", "mB", "aB", "xB", "fwhm", "hrt", "ttp", "area")
+labelFWHM <- paste0("FWHM: ", round(result[1], 3))
+labelHRT <- paste0("HRT: ", round(result[2], 3))
+ggplot(data = z, aes()) +
+geom_line(aes(x = time, y = value)) +
+geom_point(aes(x = dims$xA, y = dims$halfMax), color = "red") +
+geom_point(aes(x = dims$xB, y = dims$halfMax), color = "red") +
+geom_point(aes(x = dims$xmax, y = dims$ymax, color = "red")) +
+geom_segment(aes(x = dims$xA, y = dims$halfMax, xend = dims$xB, yend = dims$halfMax, color = "red"), lty = 2) +
+geom_segment(aes(x = dims$xA + 0.2, y = dims$halfMax - 0.5, xend = dims$xB - 0.2, yend = dims$halfMax - 0.5), lty = 1) +
+annotate("text", x = dims$xA + dims$fwhm / 2, y = dims$halfMax - (dims$halfMax * 0.02), label = labelFWHM, cex = 3, hjust = 0.5) +
+geom_segment(aes(x = dims$xmax, y = dims$ymax, xend = dims$xmax, yend = dims$halfMax, color = "red"), lty = 2) +
+geom_segment(aes(x = dims$xmax + 0.2, y = dims$halfMax + 0.5, xend = dims$xB - 0.2, yend = dims$halfMax + 0.5), lty = 1) +
+annotate("text", x = dims$xB - dims$hrt / 2, y = dims$halfMax + (dims$halfMax * 0.02), label = labelHRT, cex = 3, hjust = 0.5) +
+theme(legend.position="none")
+z <- subset(data, select = c(1, 6))
+names(z) <- c("time", "value")
+fwhm_z <- fwhm.fun(z)
+hrt_z <- hrt.fun(z)
+ttp_z <- ttp.fun(z)
+area_z <- area.fun(z)
+result <- data.frame(fwhm = fwhm_z, hrt = hrt_z, ttp = ttp_z, area = area_z)
+results <- rbind(results, result)
+dims <- peakDim.fun(z)
+names(dims) <- c("xmax", "ymax", "ybase", "ypeak", "halfMax", "xAHigh", "xALow", "yAHigh", "yALow", "xBHigh", "xBLow", "yBHigh", "yBHigh", "mA", "aA", "xA", "mB", "aB", "xB", "fwhm", "hrt", "ttp", "area")
+labelFWHM <- paste0("FWHM: ", round(result[1], 3))
+labelHRT <- paste0("HRT: ", round(result[2], 3))
+ggplot(data = z, aes()) +
+geom_line(aes(x = time, y = value)) +
+geom_point(aes(x = dims$xA, y = dims$halfMax), color = "red") +
+geom_point(aes(x = dims$xB, y = dims$halfMax), color = "red") +
+geom_point(aes(x = dims$xmax, y = dims$ymax, color = "red")) +
+geom_segment(aes(x = dims$xA, y = dims$halfMax, xend = dims$xB, yend = dims$halfMax, color = "red"), lty = 2) +
+geom_segment(aes(x = dims$xA + 0.2, y = dims$halfMax - 0.5, xend = dims$xB - 0.2, yend = dims$halfMax - 0.5), lty = 1) +
+annotate("text", x = dims$xA + dims$fwhm / 2, y = dims$halfMax - (dims$halfMax * 0.02), label = labelFWHM, cex = 3, hjust = 0.5) +
+geom_segment(aes(x = dims$xmax, y = dims$ymax, xend = dims$xmax, yend = dims$halfMax, color = "red"), lty = 2) +
+geom_segment(aes(x = dims$xmax + 0.2, y = dims$halfMax + 0.5, xend = dims$xB - 0.2, yend = dims$halfMax + 0.5), lty = 1) +
+annotate("text", x = dims$xB - dims$hrt / 2, y = dims$halfMax + (dims$halfMax * 0.02), label = labelHRT, cex = 3, hjust = 0.5) +
+theme(legend.position="none")
+z <- subset(data, select = c(1, 7))
+names(z) <- c("time", "value")
+fwhm_z <- fwhm.fun(z)
+hrt_z <- hrt.fun(z)
+ttp_z <- ttp.fun(z)
+area_z <- area.fun(z)
+result <- data.frame(fwhm = fwhm_z, hrt = hrt_z, ttp = ttp_z, area = area_z)
+results <- rbind(results, result)
+dims <- peakDim.fun(z)
+names(dims) <- c("xmax", "ymax", "ybase", "ypeak", "halfMax", "xAHigh", "xALow", "yAHigh", "yALow", "xBHigh", "xBLow", "yBHigh", "yBHigh", "mA", "aA", "xA", "mB", "aB", "xB", "fwhm", "hrt", "ttp", "area")
+labelFWHM <- paste0("FWHM: ", round(result[1], 3))
+labelHRT <- paste0("HRT: ", round(result[2], 3))
+ggplot(data = z, aes()) +
+geom_line(aes(x = time, y = value)) +
+geom_point(aes(x = dims$xA, y = dims$halfMax), color = "red") +
+geom_point(aes(x = dims$xB, y = dims$halfMax), color = "red") +
+geom_point(aes(x = dims$xmax, y = dims$ymax, color = "red")) +
+geom_segment(aes(x = dims$xA, y = dims$halfMax, xend = dims$xB, yend = dims$halfMax, color = "red"), lty = 2) +
+geom_segment(aes(x = dims$xA + 0.2, y = dims$halfMax - 0.5, xend = dims$xB - 0.2, yend = dims$halfMax - 0.5), lty = 1) +
+annotate("text", x = dims$xA + dims$fwhm / 2, y = dims$halfMax - (dims$halfMax * 0.02), label = labelFWHM, cex = 3, hjust = 0.5) +
+geom_segment(aes(x = dims$xmax, y = dims$ymax, xend = dims$xmax, yend = dims$halfMax, color = "red"), lty = 2) +
+geom_segment(aes(x = dims$xmax + 0.2, y = dims$halfMax + 0.5, xend = dims$xB - 0.2, yend = dims$halfMax + 0.5), lty = 1) +
+annotate("text", x = dims$xB - dims$hrt / 2, y = dims$halfMax + (dims$halfMax * 0.02), label = labelHRT, cex = 3, hjust = 0.5) +
+theme(legend.position="none")
+z <- subset(data, select = c(1, 8))
+names(z) <- c("time", "value")
+fwhm_z <- fwhm.fun(z)
+hrt_z <- hrt.fun(z)
+ttp_z <- ttp.fun(z)
+area_z <- area.fun(z)
+result <- data.frame(fwhm = fwhm_z, hrt = hrt_z, ttp = ttp_z, area = area_z)
+results <- rbind(results, result)
+dims <- peakDim.fun(z)
+names(dims) <- c("xmax", "ymax", "ybase", "ypeak", "halfMax", "xAHigh", "xALow", "yAHigh", "yALow", "xBHigh", "xBLow", "yBHigh", "yBHigh", "mA", "aA", "xA", "mB", "aB", "xB", "fwhm", "hrt", "ttp", "area")
+labelFWHM <- paste0("FWHM: ", round(result[1], 3))
+labelHRT <- paste0("HRT: ", round(result[2], 3))
+ggplot(data = z, aes()) +
+geom_line(aes(x = time, y = value)) +
+geom_point(aes(x = dims$xA, y = dims$halfMax), color = "red") +
+geom_point(aes(x = dims$xB, y = dims$halfMax), color = "red") +
+geom_point(aes(x = dims$xmax, y = dims$ymax, color = "red")) +
+geom_segment(aes(x = dims$xA, y = dims$halfMax, xend = dims$xB, yend = dims$halfMax, color = "red"), lty = 2) +
+geom_segment(aes(x = dims$xA + 0.2, y = dims$halfMax - 0.5, xend = dims$xB - 0.2, yend = dims$halfMax - 0.5), lty = 1) +
+annotate("text", x = dims$xA + dims$fwhm / 2, y = dims$halfMax - (dims$halfMax * 0.02), label = labelFWHM, cex = 3, hjust = 0.5) +
+geom_segment(aes(x = dims$xmax, y = dims$ymax, xend = dims$xmax, yend = dims$halfMax, color = "red"), lty = 2) +
+geom_segment(aes(x = dims$xmax + 0.2, y = dims$halfMax + 0.5, xend = dims$xB - 0.2, yend = dims$halfMax + 0.5), lty = 1) +
+annotate("text", x = dims$xB - dims$hrt / 2, y = dims$halfMax + (dims$halfMax * 0.02), label = labelHRT, cex = 3, hjust = 0.5) +
+theme(legend.position="none")
+z <- subset(data, select = c(1, 9))
+names(z) <- c("time", "value")
+fwhm_z <- fwhm.fun(z)
+hrt_z <- hrt.fun(z)
+ttp_z <- ttp.fun(z)
+area_z <- area.fun(z)
+result <- data.frame(fwhm = fwhm_z, hrt = hrt_z, ttp = ttp_z, area = area_z)
+results <- rbind(results, result)
+dims <- peakDim.fun(z)
+names(dims) <- c("xmax", "ymax", "ybase", "ypeak", "halfMax", "xAHigh", "xALow", "yAHigh", "yALow", "xBHigh", "xBLow", "yBHigh", "yBHigh", "mA", "aA", "xA", "mB", "aB", "xB", "fwhm", "hrt", "ttp", "area")
+labelFWHM <- paste0("FWHM: ", round(result[1], 3))
+labelHRT <- paste0("HRT: ", round(result[2], 3))
+ggplot(data = z, aes()) +
+geom_line(aes(x = time, y = value)) +
+geom_point(aes(x = dims$xA, y = dims$halfMax), color = "red") +
+geom_point(aes(x = dims$xB, y = dims$halfMax), color = "red") +
+geom_point(aes(x = dims$xmax, y = dims$ymax, color = "red")) +
+geom_segment(aes(x = dims$xA, y = dims$halfMax, xend = dims$xB, yend = dims$halfMax, color = "red"), lty = 2) +
+geom_segment(aes(x = dims$xA + 0.2, y = dims$halfMax - 0.5, xend = dims$xB - 0.2, yend = dims$halfMax - 0.5), lty = 1) +
+annotate("text", x = dims$xA + dims$fwhm / 2, y = dims$halfMax - (dims$halfMax * 0.02), label = labelFWHM, cex = 3, hjust = 0.5) +
+geom_segment(aes(x = dims$xmax, y = dims$ymax, xend = dims$xmax, yend = dims$halfMax, color = "red"), lty = 2) +
+geom_segment(aes(x = dims$xmax + 0.2, y = dims$halfMax + 0.5, xend = dims$xB - 0.2, yend = dims$halfMax + 0.5), lty = 1) +
+annotate("text", x = dims$xB - dims$hrt / 2, y = dims$halfMax + (dims$halfMax * 0.02), label = labelHRT, cex = 3, hjust = 0.5) +
+theme(legend.position="none")
+z <- subset(data, select = c(1, 10))
+names(z) <- c("time", "value")
+fwhm_z <- fwhm.fun(z)
+hrt_z <- hrt.fun(z)
+ttp_z <- ttp.fun(z)
+area_z <- area.fun(z)
+result <- data.frame(fwhm = fwhm_z, hrt = hrt_z, ttp = ttp_z, area = area_z)
+results <- rbind(results, result)
+dims <- peakDim.fun(z)
+names(dims) <- c("xmax", "ymax", "ybase", "ypeak", "halfMax", "xAHigh", "xALow", "yAHigh", "yALow", "xBHigh", "xBLow", "yBHigh", "yBHigh", "mA", "aA", "xA", "mB", "aB", "xB", "fwhm", "hrt", "ttp", "area")
+labelFWHM <- paste0("FWHM: ", round(result[1], 3))
+labelHRT <- paste0("HRT: ", round(result[2], 3))
+ggplot(data = z, aes()) +
+geom_line(aes(x = time, y = value)) +
+geom_point(aes(x = dims$xA, y = dims$halfMax), color = "red") +
+geom_point(aes(x = dims$xB, y = dims$halfMax), color = "red") +
+geom_point(aes(x = dims$xmax, y = dims$ymax, color = "red")) +
+geom_segment(aes(x = dims$xA, y = dims$halfMax, xend = dims$xB, yend = dims$halfMax, color = "red"), lty = 2) +
+geom_segment(aes(x = dims$xA + 0.2, y = dims$halfMax - 0.5, xend = dims$xB - 0.2, yend = dims$halfMax - 0.5), lty = 1) +
+annotate("text", x = dims$xA + dims$fwhm / 2, y = dims$halfMax - (dims$halfMax * 0.02), label = labelFWHM, cex = 3, hjust = 0.5) +
+geom_segment(aes(x = dims$xmax, y = dims$ymax, xend = dims$xmax, yend = dims$halfMax, color = "red"), lty = 2) +
+geom_segment(aes(x = dims$xmax + 0.2, y = dims$halfMax + 0.5, xend = dims$xB - 0.2, yend = dims$halfMax + 0.5), lty = 1) +
+annotate("text", x = dims$xB - dims$hrt / 2, y = dims$halfMax + (dims$halfMax * 0.02), label = labelHRT, cex = 3, hjust = 0.5) +
+theme(legend.position="none")
+z <- subset(data, select = c(1, 11))
+names(z) <- c("time", "value")
+fwhm_z <- fwhm.fun(z)
+hrt_z <- hrt.fun(z)
+ttp_z <- ttp.fun(z)
+area_z <- area.fun(z)
+result <- data.frame(fwhm = fwhm_z, hrt = hrt_z, ttp = ttp_z, area = area_z)
+results <- rbind(results, result)
+dims <- peakDim.fun(z)
+names(dims) <- c("xmax", "ymax", "ybase", "ypeak", "halfMax", "xAHigh", "xALow", "yAHigh", "yALow", "xBHigh", "xBLow", "yBHigh", "yBHigh", "mA", "aA", "xA", "mB", "aB", "xB", "fwhm", "hrt", "ttp", "area")
+labelFWHM <- paste0("FWHM: ", round(result[1], 3))
+labelHRT <- paste0("HRT: ", round(result[2], 3))
+ggplot(data = z, aes()) +
+geom_line(aes(x = time, y = value)) +
+geom_point(aes(x = dims$xA, y = dims$halfMax), color = "red") +
+geom_point(aes(x = dims$xB, y = dims$halfMax), color = "red") +
+geom_point(aes(x = dims$xmax, y = dims$ymax, color = "red")) +
+geom_segment(aes(x = dims$xA, y = dims$halfMax, xend = dims$xB, yend = dims$halfMax, color = "red"), lty = 2) +
+geom_segment(aes(x = dims$xA + 0.2, y = dims$halfMax - 0.5, xend = dims$xB - 0.2, yend = dims$halfMax - 0.5), lty = 1) +
+annotate("text", x = dims$xA + dims$fwhm / 2, y = dims$halfMax - (dims$halfMax * 0.02), label = labelFWHM, cex = 3, hjust = 0.5) +
+geom_segment(aes(x = dims$xmax, y = dims$ymax, xend = dims$xmax, yend = dims$halfMax, color = "red"), lty = 2) +
+geom_segment(aes(x = dims$xmax + 0.2, y = dims$halfMax + 0.5, xend = dims$xB - 0.2, yend = dims$halfMax + 0.5), lty = 1) +
+annotate("text", x = dims$xB - dims$hrt / 2, y = dims$halfMax + (dims$halfMax * 0.02), label = labelHRT, cex = 3, hjust = 0.5) +
+theme(legend.position="none")
+results <- data.frame(matrix(ncol = 4, nrow = 0))
+names(results) <- c("fwhm", "hrt", "ttp", "area")
+for (i in 2:ncol(data)) {  # cycles through columns and applies function to get baseline, peak, fwhm, hrt and area under the curve
+z <- subset(data, select = c(1, i))
+names(z) <- c("time", "value")
+fwhm_z <- fwhm.fun(z)
+hrt_z <- hrt.fun(z)
+ttp_z <- ttp.fun(z)
+area_z <- area.fun(z)
+result <- data.frame(fwhm = fwhm_z, hrt = hrt_z, ttp = ttp_z, area = area_z)
+results <- rbind(results, result)
+dims <- peakDim.fun(z)
+names(dims) <- c("xmax", "ymax", "ybase", "ypeak", "halfMax", "xAHigh", "xALow", "yAHigh", "yALow", "xBHigh", "xBLow", "yBHigh", "yBHigh", "mA", "aA", "xA", "mB", "aB", "xB", "fwhm", "hrt", "ttp", "area")
+labelFWHM <- paste0("FWHM: ", round(result[1], 3))
+labelHRT <- paste0("HRT: ", round(result[2], 3))
+ggplot(data = z, aes()) +
+geom_line(aes(x = time, y = value)) +
+geom_point(aes(x = dims$xA, y = dims$halfMax), color = "red") +
+geom_point(aes(x = dims$xB, y = dims$halfMax), color = "red") +
+geom_point(aes(x = dims$xmax, y = dims$ymax, color = "red")) +
+geom_segment(aes(x = dims$xA, y = dims$halfMax, xend = dims$xB, yend = dims$halfMax, color = "red"), lty = 2) +
+geom_segment(aes(x = dims$xA + 0.2, y = dims$halfMax - 0.5, xend = dims$xB - 0.2, yend = dims$halfMax - 0.5), lty = 1) +
+annotate("text", x = dims$xA + dims$fwhm / 2, y = dims$halfMax - (dims$halfMax * 0.02), label = labelFWHM, cex = 3, hjust = 0.5) +
+geom_segment(aes(x = dims$xmax, y = dims$ymax, xend = dims$xmax, yend = dims$halfMax, color = "red"), lty = 2) +
+geom_segment(aes(x = dims$xmax + 0.2, y = dims$halfMax + 0.5, xend = dims$xB - 0.2, yend = dims$halfMax + 0.5), lty = 1) +
+annotate("text", x = dims$xB - dims$hrt / 2, y = dims$halfMax + (dims$halfMax * 0.02), label = labelHRT, cex = 3, hjust = 0.5) +
+theme(legend.position="none")
+}
+View(results)
+for (i in 2:5) {  # cycles through columns and applies function to get baseline, peak, fwhm, hrt and area under the curve  ncol(data)
+z <- subset(data, select = c(1, i))
+names(z) <- c("time", "value")
+fwhm_z <- fwhm.fun(z)
+hrt_z <- hrt.fun(z)
+ttp_z <- ttp.fun(z)
+area_z <- area.fun(z)
+result <- data.frame(fwhm = fwhm_z, hrt = hrt_z, ttp = ttp_z, area = area_z)
+results <- rbind(results, result)
+dims <- peakDim.fun(z)
+names(dims) <- c("xmax", "ymax", "ybase", "ypeak", "halfMax", "xAHigh", "xALow", "yAHigh", "yALow", "xBHigh", "xBLow", "yBHigh", "yBHigh", "mA", "aA", "xA", "mB", "aB", "xB", "fwhm", "hrt", "ttp", "area")
+labelFWHM <- paste0("FWHM: ", round(result[1], 3))
+labelHRT <- paste0("HRT: ", round(result[2], 3))
+ggplot(data = z, aes()) +
+geom_line(aes(x = time, y = value)) +
+geom_point(aes(x = dims$xA, y = dims$halfMax), color = "red") +
+geom_point(aes(x = dims$xB, y = dims$halfMax), color = "red") +
+geom_point(aes(x = dims$xmax, y = dims$ymax, color = "red")) +
+geom_segment(aes(x = dims$xA, y = dims$halfMax, xend = dims$xB, yend = dims$halfMax, color = "red"), lty = 2) +
+geom_segment(aes(x = dims$xA + 0.2, y = dims$halfMax - 0.5, xend = dims$xB - 0.2, yend = dims$halfMax - 0.5), lty = 1) +
+annotate("text", x = dims$xA + dims$fwhm / 2, y = dims$halfMax - (dims$halfMax * 0.02), label = labelFWHM, cex = 3, hjust = 0.5) +
+geom_segment(aes(x = dims$xmax, y = dims$ymax, xend = dims$xmax, yend = dims$halfMax, color = "red"), lty = 2) +
+geom_segment(aes(x = dims$xmax + 0.2, y = dims$halfMax + 0.5, xend = dims$xB - 0.2, yend = dims$halfMax + 0.5), lty = 1) +
+annotate("text", x = dims$xB - dims$hrt / 2, y = dims$halfMax + (dims$halfMax * 0.02), label = labelHRT, cex = 3, hjust = 0.5) +
+theme(legend.position="none")
+}
+for (i in 2:3) {  # cycles through columns and applies function to get baseline, peak, fwhm, hrt and area under the curve  ncol(data)
+z <- subset(data, select = c(1, i))
+names(z) <- c("time", "value")
+fwhm_z <- fwhm.fun(z)
+hrt_z <- hrt.fun(z)
+ttp_z <- ttp.fun(z)
+area_z <- area.fun(z)
+result <- data.frame(fwhm = fwhm_z, hrt = hrt_z, ttp = ttp_z, area = area_z)
+results <- rbind(results, result)
+dims <- peakDim.fun(z)
+names(dims) <- c("xmax", "ymax", "ybase", "ypeak", "halfMax", "xAHigh", "xALow", "yAHigh", "yALow", "xBHigh", "xBLow", "yBHigh", "yBHigh", "mA", "aA", "xA", "mB", "aB", "xB", "fwhm", "hrt", "ttp", "area")
+labelFWHM <- paste0("FWHM: ", round(result[1], 3))
+labelHRT <- paste0("HRT: ", round(result[2], 3))
+ggplot(data = z, aes()) +
+geom_line(aes(x = time, y = value)) +
+geom_point(aes(x = dims$xA, y = dims$halfMax), color = "red") +
+geom_point(aes(x = dims$xB, y = dims$halfMax), color = "red") +
+geom_point(aes(x = dims$xmax, y = dims$ymax, color = "red")) +
+geom_segment(aes(x = dims$xA, y = dims$halfMax, xend = dims$xB, yend = dims$halfMax, color = "red"), lty = 2) +
+geom_segment(aes(x = dims$xA + 0.2, y = dims$halfMax - 0.5, xend = dims$xB - 0.2, yend = dims$halfMax - 0.5), lty = 1) +
+annotate("text", x = dims$xA + dims$fwhm / 2, y = dims$halfMax - (dims$halfMax * 0.02), label = labelFWHM, cex = 3, hjust = 0.5) +
+geom_segment(aes(x = dims$xmax, y = dims$ymax, xend = dims$xmax, yend = dims$halfMax, color = "red"), lty = 2) +
+geom_segment(aes(x = dims$xmax + 0.2, y = dims$halfMax + 0.5, xend = dims$xB - 0.2, yend = dims$halfMax + 0.5), lty = 1) +
+annotate("text", x = dims$xB - dims$hrt / 2, y = dims$halfMax + (dims$halfMax * 0.02), label = labelHRT, cex = 3, hjust = 0.5) +
+theme(legend.position="none")
+}
+for (i in 2:2) {  # cycles through columns and applies function to get baseline, peak, fwhm, hrt and area under the curve  ncol(data)
+z <- subset(data, select = c(1, i))
+names(z) <- c("time", "value")
+fwhm_z <- fwhm.fun(z)
+hrt_z <- hrt.fun(z)
+ttp_z <- ttp.fun(z)
+area_z <- area.fun(z)
+result <- data.frame(fwhm = fwhm_z, hrt = hrt_z, ttp = ttp_z, area = area_z)
+results <- rbind(results, result)
+dims <- peakDim.fun(z)
+names(dims) <- c("xmax", "ymax", "ybase", "ypeak", "halfMax", "xAHigh", "xALow", "yAHigh", "yALow", "xBHigh", "xBLow", "yBHigh", "yBHigh", "mA", "aA", "xA", "mB", "aB", "xB", "fwhm", "hrt", "ttp", "area")
+labelFWHM <- paste0("FWHM: ", round(result[1], 3))
+labelHRT <- paste0("HRT: ", round(result[2], 3))
+ggplot(data = z, aes()) +
+geom_line(aes(x = time, y = value)) +
+geom_point(aes(x = dims$xA, y = dims$halfMax), color = "red") +
+geom_point(aes(x = dims$xB, y = dims$halfMax), color = "red") +
+geom_point(aes(x = dims$xmax, y = dims$ymax, color = "red")) +
+geom_segment(aes(x = dims$xA, y = dims$halfMax, xend = dims$xB, yend = dims$halfMax, color = "red"), lty = 2) +
+geom_segment(aes(x = dims$xA + 0.2, y = dims$halfMax - 0.5, xend = dims$xB - 0.2, yend = dims$halfMax - 0.5), lty = 1) +
+annotate("text", x = dims$xA + dims$fwhm / 2, y = dims$halfMax - (dims$halfMax * 0.02), label = labelFWHM, cex = 3, hjust = 0.5) +
+geom_segment(aes(x = dims$xmax, y = dims$ymax, xend = dims$xmax, yend = dims$halfMax, color = "red"), lty = 2) +
+geom_segment(aes(x = dims$xmax + 0.2, y = dims$halfMax + 0.5, xend = dims$xB - 0.2, yend = dims$halfMax + 0.5), lty = 1) +
+annotate("text", x = dims$xB - dims$hrt / 2, y = dims$halfMax + (dims$halfMax * 0.02), label = labelHRT, cex = 3, hjust = 0.5) +
+theme(legend.position="none")
+}
+for (i in 2:2) {  # cycles through columns and applies function to get baseline, peak, fwhm, hrt and area under the curve  ncol(data)
+z <- subset(data, select = c(1, i))
+names(z) <- c("time", "value")
+fwhm_z <- fwhm.fun(z)
+hrt_z <- hrt.fun(z)
+ttp_z <- ttp.fun(z)
+area_z <- area.fun(z)
+result <- data.frame(fwhm = fwhm_z, hrt = hrt_z, ttp = ttp_z, area = area_z)
+results <- rbind(results, result)
+dims <- peakDim.fun(z)
+names(dims) <- c("xmax", "ymax", "ybase", "ypeak", "halfMax", "xAHigh", "xALow", "yAHigh", "yALow", "xBHigh", "xBLow", "yBHigh", "yBHigh", "mA", "aA", "xA", "mB", "aB", "xB", "fwhm", "hrt", "ttp", "area")
+labelFWHM <- paste0("FWHM: ", round(result[1], 3))
+labelHRT <- paste0("HRT: ", round(result[2], 3))
+g <- ggplot(data = z, aes()) +
+geom_line(aes(x = time, y = value)) +
+geom_point(aes(x = dims$xA, y = dims$halfMax), color = "red") +
+geom_point(aes(x = dims$xB, y = dims$halfMax), color = "red") +
+geom_point(aes(x = dims$xmax, y = dims$ymax, color = "red")) +
+geom_segment(aes(x = dims$xA, y = dims$halfMax, xend = dims$xB, yend = dims$halfMax, color = "red"), lty = 2) +
+geom_segment(aes(x = dims$xA + 0.2, y = dims$halfMax - 0.5, xend = dims$xB - 0.2, yend = dims$halfMax - 0.5), lty = 1) +
+annotate("text", x = dims$xA + dims$fwhm / 2, y = dims$halfMax - (dims$halfMax * 0.02), label = labelFWHM, cex = 3, hjust = 0.5) +
+geom_segment(aes(x = dims$xmax, y = dims$ymax, xend = dims$xmax, yend = dims$halfMax, color = "red"), lty = 2) +
+geom_segment(aes(x = dims$xmax + 0.2, y = dims$halfMax + 0.5, xend = dims$xB - 0.2, yend = dims$halfMax + 0.5), lty = 1) +
+annotate("text", x = dims$xB - dims$hrt / 2, y = dims$halfMax + (dims$halfMax * 0.02), label = labelHRT, cex = 3, hjust = 0.5) +
+theme(legend.position="none")
+print(g)
+}
+for (i in 2:ncol(data)) {  # cycles through columns and applies function to get baseline, peak, fwhm, hrt and area under the curve
+z <- subset(data, select = c(1, i))
+names(z) <- c("time", "value")
+fwhm_z <- fwhm.fun(z)
+hrt_z <- hrt.fun(z)
+ttp_z <- ttp.fun(z)
+area_z <- area.fun(z)
+result <- data.frame(fwhm = fwhm_z, hrt = hrt_z, ttp = ttp_z, area = area_z)
+results <- rbind(results, result)
+dims <- peakDim.fun(z)
+names(dims) <- c("xmax", "ymax", "ybase", "ypeak", "halfMax", "xAHigh", "xALow", "yAHigh", "yALow", "xBHigh", "xBLow", "yBHigh", "yBHigh", "mA", "aA", "xA", "mB", "aB", "xB", "fwhm", "hrt", "ttp", "area")
+labelFWHM <- paste0("FWHM: ", round(result[1], 3))
+labelHRT <- paste0("HRT: ", round(result[2], 3))
+g <- ggplot(data = z, aes()) +
+geom_line(aes(x = time, y = value)) +
+geom_point(aes(x = dims$xA, y = dims$halfMax), color = "red") +
+geom_point(aes(x = dims$xB, y = dims$halfMax), color = "red") +
+geom_point(aes(x = dims$xmax, y = dims$ymax, color = "red")) +
+geom_segment(aes(x = dims$xA, y = dims$halfMax, xend = dims$xB, yend = dims$halfMax, color = "red"), lty = 2) +
+geom_segment(aes(x = dims$xA + 0.2, y = dims$halfMax - 0.5, xend = dims$xB - 0.2, yend = dims$halfMax - 0.5), lty = 1) +
+annotate("text", x = dims$xA + dims$fwhm / 2, y = dims$halfMax - (dims$halfMax * 0.02), label = labelFWHM, cex = 3, hjust = 0.5) +
+geom_segment(aes(x = dims$xmax, y = dims$ymax, xend = dims$xmax, yend = dims$halfMax, color = "red"), lty = 2) +
+geom_segment(aes(x = dims$xmax + 0.2, y = dims$halfMax + 0.5, xend = dims$xB - 0.2, yend = dims$halfMax + 0.5), lty = 1) +
+annotate("text", x = dims$xB - dims$hrt / 2, y = dims$halfMax + (dims$halfMax * 0.02), label = labelHRT, cex = 3, hjust = 0.5) +
+theme(legend.position="none")
+print(g)
+}
+require(devtools)
+install_github("deftic/defShit")
+roxygen2::roxygenise()
+roxygen2::roxygenise()
+roxygen2::roxygenise()
+roxygen2::roxygenise()
+roxygen2::roxygenise()
+roxygen2::roxygenise()
+require(MESS)  # load auc function
+require(tidyverse)  # load auc function
+require(pracma)
+require(devtools)
+install_github("deftic/defShit")
