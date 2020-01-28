@@ -10,4 +10,7 @@ Encoding: UTF-8
 LazyData: true
 Imports: 
   MESS
+  defShit
+  tidyverse
+  pracma
 RoxygenNote: 6.1.1

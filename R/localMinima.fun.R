@@ -1,4 +1,4 @@
-#' Finds local maxima on peak traces
+#' Finds local minima on peak traces
 #'
 #' @param z 
 #'
@@ -6,12 +6,12 @@
 #' @export
 #'
 #' @examples
-#' test <- localMaxima(z)
+#' test <- localMinima(z)
 #' 
 
-localMaxima <- function(z) {
+localMinima.fun <- function(z) {
   # Use -Inf instead if x is numeric (non-integer)
-  y <- diff(c(-.Machine$integer.max, z)) > 0L
+  y <- diff(c(.Machine$integer.max, z)) < 0L
   rle(y)$lengths
   y <- cumsum(rle(y)$lengths)
   y <- y[seq.int(1L, length(y), 2L)]
@@ -20,4 +20,3 @@ localMaxima <- function(z) {
   }
   y
 }
-
