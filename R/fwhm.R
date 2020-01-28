@@ -7,11 +7,11 @@
 #'
 #' @examples
 #' test <- fwhm(one)
-#' names(test) <- c("xmax", "ymax", "ybase", "halfMax", "xALow", "yALow", "xAHigh", "yAHigh", "xBHigh", "yBHigh", "xBLow", "yBLow", "mA", "mB", "aA", "aB", "xA", "xB", "fwhm", "hrt", "ttp", "area")
+#' names(test) <- c("xmax", "ymax", "ybase", "halfMax", "xALow", "yALow", "xAHigh", "yAHigh", "xBHigh", "yBHigh", "xBLow", "yBLow", "mA", "mB", "aA", "aB", "xA", "xB", "fwhm", "hrt", "auc")
 
 fwhm <- function(z) {
   data.frame(
-      xmax <- z$time[z$value==max(z$value[4:20])], # timepoint with max value within time 4 to 20
+      xmax <- z$time[z$value == max(z$value[5:15])], # timepoint with max value within time 4 to 20
       ymax <- z$value[xmax], # max value
       ybase <- mean(na.omit(z$value[2:4])), # baseline (average of values x = 2 to 4)
       ypeak <- (ymax - ybase), # max value without baseline
@@ -35,10 +35,11 @@ fwhm <- function(z) {
       mB <- (yBHigh - yBLow) / (xBHigh - xBLow), # slope of point B
       aB <- (yBLow * xBHigh - yBHigh * xBLow) / (xBHigh - xBLow), # intercept of point B
       xB <- (halfMax - aB) / mB,
-
+      
       fwhm <- xB - xA,  # full width at half maximum
       hrt <- xB - xmax, # half relaxation time
-      area <- auc(z[, 1], z[, 2] - ybase, type = "spline") # area under the curve
+      ttp <- xmax - (localMinima(z$value[5:xmax]) + 4),  # time to peak
+      area <- auc(z[5:30, 1], z[5:30, 2] - ybase) # area under the curve
     )
 }
 
