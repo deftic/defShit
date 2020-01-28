@@ -11,7 +11,7 @@
 
 peakDim.fun <- function(z) {
   data.frame(
-  xmax <- pracma::findpeaks(z$value, nups = 1, ndowns = 2, npeaks = 1, threshold = 2, sortstr = TRUE)[1, 2], # timepoint with max value within time 4 to 20
+  xmax <- pracma::findpeaks(z$value, nups = 1, ndowns = 2, npeaks = 1, threshold = 2, sortstr = TRUE)[1, 2], # timepoint with max value 
   ymax <- z$value[xmax], # max value
   ybase <- mean(na.omit(z$value[2:4])), # baseline (average of values x = 2 to 4)
   ypeak <- (ymax - ybase), # max value without baseline
