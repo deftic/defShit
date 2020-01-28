@@ -38,7 +38,7 @@ fwhm <- function(z) {
       
       fwhm <- xB - xA,  # full width at half maximum
       hrt <- xB - xmax, # half relaxation time
-      ttp <- xmax - (localMinima(z$value[5:xmax]) + 4),  # time to peak
+      ttp <- xmax - (localMinima.fun(z$value[5:xmax]) + 4),  # time to peak
       area <- auc(z[5:30, 1], z[5:30, 2] - ybase) # area under the curve
     )
 }
