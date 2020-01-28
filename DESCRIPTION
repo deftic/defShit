@@ -9,8 +9,7 @@ License: None
 Encoding: UTF-8
 LazyData: true
 Imports: 
-  MESS
-  defShit
-  tidyverse
+  MESS,
+  tidyverse,
   pracma
-RoxygenNote: 6.1.1
+RoxygenNote: 7.0.2

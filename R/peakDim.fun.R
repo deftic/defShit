@@ -1,6 +1,6 @@
-#' Calculates FWHM, HRT and AUC of peaks
+#' Calculates Peak Characteristics
 #'
-#' @param z A data.frame containing all peaks as columns and timepoints in column A from a csv file
+#' @param z A data.frame containing peak values in column 2 and timepoints in column 1 from a csv file
 #'
 #' @return The FWHM, HRT and AUC value for the peaks
 #' @export
@@ -11,7 +11,7 @@
 
 peakDim.fun <- function(z) {
   data.frame(
-  xmax <- findpeaks(z$value, nups = 1, ndowns = 2, npeaks = 1, threshold = 2, sortstr = TRUE)[1, 2], # timepoint with max value within time 4 to 20
+  xmax <- pracma::findpeaks(z$value, nups = 1, ndowns = 2, npeaks = 1, threshold = 2, sortstr = TRUE)[1, 2], # timepoint with max value within time 4 to 20
   ymax <- z$value[xmax], # max value
   ybase <- mean(na.omit(z$value[2:4])), # baseline (average of values x = 2 to 4)
   ypeak <- (ymax - ybase), # max value without baseline
@@ -39,7 +39,7 @@ peakDim.fun <- function(z) {
   fwhm <- xB - xA,  # full width at half maximum
   hrt <- xB - xmax, # half relaxation time
   ttp <- xmax - (max(localMinima(z$value[5:xmax])) + 4),  # time to peak
-  area <- auc(z[5:30, 1], z[5:30, 2] - min(z$value), type = "spline") # area under the curve
+  area <- MESS::auc(z[5:30, 1], z[5:30, 2] - min(z$value), type = "spline") # area under the curve
   
   )
 }

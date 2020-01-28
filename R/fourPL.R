@@ -10,6 +10,7 @@
 #' @export
 #'
 #' @examples
+#' add_numbers(1, 2) ## returns 3 
 
 fourPL <- function (a, b, c, d, y)
 {

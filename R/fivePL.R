@@ -11,6 +11,7 @@
 #' @export
 #'
 #' @examples
+#' add_numbers(1, 2) ## returns 3
 
 fivePL <- function (a, b, c, d, m, y)
 {

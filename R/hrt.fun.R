@@ -1,16 +1,15 @@
-#' Calculates FWHM, HRT and AUC of peaks
+#' Calculates HRT of peaks
 #'
-#' @param z A data.frame containing all peaks as columns and timepoints in column A from a csv file
+#' @param z A data.frame containing all peaks as columns and timepoints in column 1 from a csv file
 #'
-#' @return The FWHM, HRT and AUC value for the peaks
+#' @return The HRT value for the peak
 #' @export
 #'
 #' @examples
-#' test <- fwhm(one)
-#' names(test) <- c("xmax", "ymax", "ybase", "halfMax", "xALow", "yALow", "xAHigh", "yAHigh", "xBHigh", "yBHigh", "xBLow", "yBLow", "mA", "mB", "aA", "aB", "xA", "xB", "fwhm", "hrt", "auc")
+#' add_numbers(1, 2) ## returns 3
 
 hrt.fun <- function(z) {
-      xmax <- findpeaks(z$value, nups = 1, ndowns = 2, npeaks = 1, threshold = 2, sortstr = TRUE)[1, 2] # timepoint with max value within time 4 to 20
+      xmax <- pracma::findpeaks(z$value, nups = 1, ndowns = 2, npeaks = 1, threshold = 2, sortstr = TRUE)[1, 2] # timepoint with max value within time 4 to 20
       ymax <- z$value[xmax] # max value
       ybase <- mean(na.omit(z$value[2:4])) # baseline (average of values x = 2 to 4)
       ypeak <- (ymax - ybase) # max value without baseline
