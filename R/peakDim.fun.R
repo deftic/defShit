@@ -6,9 +6,8 @@
 #' @export
 #'
 #' @examples
-#' test <- fwhm(one)
+#' test <- peakDim.fun(z)
 #' names(test) <- c("xmax", "ymax", "ybase", "halfMax", "xALow", "yALow", "xAHigh", "yAHigh", "xBHigh", "yBHigh", "xBLow", "yBLow", "mA", "mB", "aA", "aB", "xA", "xB", "fwhm", "hrt", "auc")
-#' 
 
 peakDim.fun <- function(z) {
   data.frame(
