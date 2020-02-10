@@ -10,7 +10,7 @@
 
 ttp.fun <- function(z) {
    
-   xmax <- pracma::findpeaks(z$value, nups = 1, ndowns = 2, threshold = 0, sortstr = TRUE)[1, 2] # timepoint with max value 
+   xmax <- pracma::findpeaks(z$value, sortstr = TRUE)[1, 2] # timepoint with max value 
    ttp <- xmax - (max(localMinima.fun(z$value[5:xmax])) + 4)  # time to peak
       
    return(ttp)
