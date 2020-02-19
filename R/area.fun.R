@@ -10,9 +10,12 @@
 #' 
 
 area.fun <- function(z) {
+   xmax <- pracma::findpeaks(z$value, sortstr = TRUE)[1, 2] # timepoint with max value 
+   ybase <- mean(na.omit(z$value[2:5])) # baseline (average of values x = 2 to 4)
+   ttp <- xmax - (max(defShit::localMinima.fun(z$value[5:xmax])) + 4)  # time to peak
+   xyVals <- subset(z, time >= (xmax - ttp) & time < which.max(z$value <= ybase & z$time > xmax))
+   area <- MESS::auc(xyVals[, 1], xyVals[, 2] - mean(z$value[2:5]), type = "spline") # area under the curve
    
-   area <- MESS::auc(z[5:30, 1], z[5:30, 2] - min(z$value), type = "spline") # area under the curve
-
    return(area)
 
    }
