@@ -11,8 +11,8 @@
 ttp.fun <- function(z) {
    
   xmax <- pracma::findpeaks(z$value, sortstr = TRUE)[1, 2] # timepoint with max value 
-  loc.mins <- localMinima.fun(z$value) # store local minima
-  ttp <- xmax - loc.mins[which.max(loc.mins[loc.mins < xmax])]  # time to peak
+  ttp <- xmax - (which.max(localMinima.fun(z$value[5:xmax])) + 4)  # time to peak
+
       
   return(ttp)
    
