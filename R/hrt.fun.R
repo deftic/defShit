@@ -9,7 +9,7 @@
 #' add_numbers(1, 2) ## returns 3
 
 hrt.fun <- function(z) {
-      xmax <- pracma::findpeaks(z$value[4:20], sortstr = TRUE)[1, 2] # timepoint with max value within time 4 to 20
+      xmax <- pracma::findpeaks(z$value, sortstr = TRUE)[1, 2] # timepoint with max value within time 4 to 20
       ymax <- z$value[xmax] # max value
       ybase <- mean(na.omit(z$value[2:5])) # baseline (average of values x = 2 to 4)
       ypeak <- (ymax - ybase) # max value without baseline
