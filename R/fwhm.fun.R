@@ -10,7 +10,7 @@
 #' 
 
 fwhm.fun <- function(z) {
-      xmax <- pracma::findpeaks(z$value[4:20], sortstr = TRUE)[1, 2] # timepoint with max value 
+      xmax <- pracma::findpeaks(z$value, sortstr = TRUE)[1, 2] # timepoint with max value 
       ymax <- z$value[xmax] # max value
       ybase <- mean(na.omit(z$value[2:5])) # baseline (average of values x = 2 to 4)
       ypeak <- (ymax - ybase) # max value without baseline
