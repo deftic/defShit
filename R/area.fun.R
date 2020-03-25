@@ -10,7 +10,7 @@
 #' 
 
 area.fun <- function(z) {
-   xmax <- pracma::findpeaks(z$value, sortstr = TRUE)[1, 2] # timepoint with max value 
+   xmax <- pracma::findpeaks(z$value[4:20], sortstr = TRUE)[1, 2] # timepoint with max value 
    ybase <- mean(na.omit(z$value[2:5])) # baseline (average of values x = 2 to 4)
    ttp <- xmax - (max(defShit::localMinima.fun(z$value[5:xmax])) + 4)  # time to peak
    xyVals <- subset(z, time >= (xmax - ttp) & time < which.max(z$value <= ybase & z$time > xmax))
