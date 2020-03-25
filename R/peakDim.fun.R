@@ -39,7 +39,9 @@ peakDim.fun <- function(z) {
   fwhm <- xB - xA,  # full width at half maximum
   hrt <- xB - xmax, # half relaxation time
   ttp <- xmax - (max(localMinima.fun(z$value[5:xmax])) + 4),  # time to peak
-  area <- MESS::auc(z[5:30, 1], z[5:30, 2] - min(z$value), type = "spline") # area under the curve
+  area <- MESS::auc(z[5:30, 1], z[5:30, 2] - min(z$value), type = "spline"), # area under the curve
+  tf <- fwhm / ((fwhm - hrt) * 2),
+  af <- hrt / (fwhm - hrt)
   
   )
 }
